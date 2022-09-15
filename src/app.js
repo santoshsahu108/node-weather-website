@@ -5,6 +5,9 @@ const app = express();
 const hbs = require('hbs');
 const forecast = require('././utils/forecast.js');
 const geocode = require('././utils/geocode.js');
+
+// for heroku live port
+const port = process.env.PORT || 3000;
 // define paths for express config
 const publicDirectoryPath = path.join(__dirname,'../public')
 const viewspath = path.join(__dirname,'../templates/views')
@@ -108,6 +111,6 @@ app.get('*',(req,res)=>{
 
 
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log("server is up on port 3000")
 })
